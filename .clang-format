@@ -1,0 +1,10 @@
+BasedOnStyle: LLVM
+ColumnLimit: 120
+NamespaceIndentation: All
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterClass: true
+PointerAlignment: Left
