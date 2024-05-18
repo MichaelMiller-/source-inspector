@@ -34,7 +34,6 @@ jobs:
       - name: Prepare system
         run: |
           sudo apt install -y libboost-all-dev
-          sudo apt install -y qt5-default
 
       - name: Export GitHub Actions cache environment variables
         uses: actions/github-script@v6
@@ -50,6 +49,7 @@ jobs:
           git clone https://github.com/Microsoft/vcpkg.git 
           cd vcpkg
           ./bootstrap-vcpkg.sh
+          ./vcpkg install qt5
           ./vcpkg install catch2
           ./vcpkg install tinyxml
           ./vcpkg install sqlite3
