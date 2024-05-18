@@ -9,14 +9,14 @@
 namespace math
 {
    //! \todo replace with boost::qvm
-   template <class T> class Vector4 : public VectorBase<T, 4>
+   template <class T>
+   class Vector4 : public VectorBase<T, 4>
    {
    public:
       Vector4();
       Vector4(const T& x, const T& y, const T& z, const T& w);
       Vector4(const VectorBase<T, 4>& vector);
       Vector4(const Vector4<T>& vector);
-      virtual ~Vector4();
 
       T getValue(const unsigned int index) const;
       void setValue(const unsigned int index, const T& value);
@@ -28,10 +28,8 @@ namespace math
       Property<T> z;
       Property<T> w;
 
-      Vector4<T> normalize();
-      Vector4<T> normalized() const;
-
-      template <class U> void operator=(const Vector4<U>& other);
+      template <class U>
+      void operator=(const Vector4<U>& other);
 
    protected:
       static const unsigned int m_xIndex = 0;
@@ -76,9 +74,8 @@ namespace math
    {
    }
 
-   template <class T> Vector4<T>::~Vector4() {}
-
-   template <class T> T Vector4<T>::getValue(const unsigned int index) const
+   template <class T>
+   T Vector4<T>::getValue(const unsigned int index) const
    {
       try {
          return VectorBase<T, 4>::getValue(index);
@@ -88,7 +85,8 @@ namespace math
       }
    }
 
-   template <class T> void Vector4<T>::setValue(const unsigned int index, const T& value)
+   template <class T>
+   void Vector4<T>::setValue(const unsigned int index, const T& value)
    {
       try {
          VectorBase<T, 4>::setValue(index, value);
@@ -97,7 +95,8 @@ namespace math
       }
    }
 
-   template <class T> T& Vector4<T>::operator[](const unsigned int index)
+   template <class T>
+   T& Vector4<T>::operator[](const unsigned int index)
    {
       try {
          return VectorBase<T, 4>::getValue(index);
@@ -107,13 +106,13 @@ namespace math
       }
    }
 
-   template <class T> Vector4<T> Vector4<T>::normalize() { return VectorBase<T, 4>::normalize(); }
+   template <class T>
+   template <class U>
+   void Vector4<T>::operator=(const Vector4<U>& other)
+   {
+      this->assign(other);
+   }
 
-   template <class T> Vector4<T> Vector4<T>::normalized() const { return VectorBase<T, 4>::normalized(); }
-
-   template <class T> template <class U> void Vector4<T>::operator=(const Vector4<U>& other) { this->assign(other); }
-
-   typedef Vector4<float> Vec4f;
    typedef Vector4<int> Vec4i;
 } // namespace math
 

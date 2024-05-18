@@ -9,7 +9,8 @@
 namespace math
 {
    //! \todo replace with boost::qvm
-   template <class T> class Vector2 : public VectorBase<T, 2>
+   template <class T>
+   class Vector2 : public VectorBase<T, 2>
    {
    public:
       Vector2();
@@ -25,10 +26,8 @@ namespace math
       Property<T> x;
       Property<T> y;
 
-      Vector2<T> normalize();
-      Vector2<T> normalized() const;
-
-      template <class U> void operator=(const Vector2<U>& other);
+      template <class U>
+      void operator=(const Vector2<U>& other);
 
    protected:
       static const unsigned int m_xIndex = 0;
@@ -63,7 +62,8 @@ namespace math
    {
    }
 
-   template <class T> T Vector2<T>::getValue(const unsigned int index) const
+   template <class T>
+   T Vector2<T>::getValue(const unsigned int index) const
    {
       try {
          return VectorBase<T, 2>::getValue(index);
@@ -73,7 +73,8 @@ namespace math
       }
    }
 
-   template <class T> void Vector2<T>::setValue(const unsigned int index, const T& value)
+   template <class T>
+   void Vector2<T>::setValue(const unsigned int index, const T& value)
    {
       try {
          VectorBase<T, 2>::setValue(index, value);
@@ -82,7 +83,8 @@ namespace math
       }
    }
 
-   template <class T> T Vector2<T>::operator[](const unsigned int index)
+   template <class T>
+   T Vector2<T>::operator[](const unsigned int index)
    {
       try {
          return VectorBase<T, 2>::getValue(index);
@@ -92,11 +94,9 @@ namespace math
       }
    }
 
-   template <class T> Vector2<T> Vector2<T>::normalize() { return VectorBase<T, 2>::normalize(); }
-
-   template <class T> Vector2<T> Vector2<T>::normalized() const { return VectorBase<T, 2>::normalized(); }
-
-   template <class T> template <class U> void Vector2<T>::operator=(const Vector2<U>& other)
+   template <class T>
+   template <class U>
+   void Vector2<T>::operator=(const Vector2<U>& other)
    {
       this->assign(other);
       x = Property<T>(&VectorBase<T, 2>::m_values[m_xIndex]);
