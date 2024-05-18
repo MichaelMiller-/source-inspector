@@ -1,5 +1,7 @@
 # source-inspector
 
+[![GCC](https://github.com/MichaelMiller-/source-inspector/actions/workflows/gcc.yml/badge.svg)](https://github.com/MichaelMiller-/source-inspector/actions/workflows/gcc.yml) [![Clang](https://github.com/MichaelMiller-/source-inspector/actions/workflows/clang.yml/badge.svg)](https://github.com/MichaelMiller-/source-inspector/actions/workflows/clang.yml) [![MSVC 2019](https://github.com/MichaelMiller-/source-inspector/actions/workflows/msvc2019.yml/badge.svg)](https://github.com/MichaelMiller-/source-inspector/actions/workflows/msvc2019.yml)
+
 ## Build instructions
 ```bash
 git clone https://github.com/MichaelMiller-/source-inspector
