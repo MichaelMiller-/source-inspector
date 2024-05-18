@@ -2,7 +2,7 @@
 
 #include <QFont>
 #include <QFontMetrics>
-#include <QGraphicsScene>
+// #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QPen>
 
@@ -36,7 +36,7 @@ bool QtGraphNodeQualifier::isQualifierNode() const
 	return true;
 }
 
-bool QtGraphNodeQualifier::setPosition(const Vec2i& pos)
+bool QtGraphNodeQualifier::setPosition(const math::Vec2i& pos)
 {
 	const int width = QFontMetrics(m_name->font()).boundingRect(m_name->text()).width() + 10;
 	const int height = QFontMetrics(m_name->font()).height() + 2;

@@ -2,6 +2,9 @@
 
 add_subdirectory(app)
 add_subdirectory(indexer)
+add_subdirectory(logging)
+add_subdirectory(math)
+
 # TODO: should be a runtime plugin or incorporate into project, therefore the target cannot be optional BUILD_PYTHON_LANGUAGE_PACKAGE
 # add_subdirectory(lib_java)
 # TODO: should be a runtime plugin or incorporate into project, therefore the target cannot be optional BUILD_JAVA_LANGUAGE_PACKAGE

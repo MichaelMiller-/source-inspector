@@ -9,7 +9,7 @@
 #include "ScopedFunctor.h"
 #include "SourceGroupJavaMaven.h"
 #include "SourceGroupSettingsJavaMaven.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilityFile.h"
 #include "utilityMaven.h"

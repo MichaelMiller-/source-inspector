@@ -10,7 +10,7 @@
 #include "OrderedCache.h"
 #include "SourceGroupSettingsCxxCodeblocks.h"
 #include "TextAccess.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilityString.h"
 

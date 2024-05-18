@@ -3,7 +3,7 @@
 #include "Blackboard.h"
 #include "FileSystem.h"
 #include "IndexerCommandProvider.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityFile.h"
 
 TaskFillIndexerCommandsQueue::TaskFillIndexerCommandsQueue(

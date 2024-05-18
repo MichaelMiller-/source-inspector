@@ -2,7 +2,7 @@
 
 #include <sstream>
 
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityString.h"
 
 namespace

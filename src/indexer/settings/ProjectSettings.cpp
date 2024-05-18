@@ -5,7 +5,7 @@
 #include "SettingsMigrationMoveKey.h"
 #include "SourceGroupSettingsCustomCommand.h"
 #include "SourceGroupSettingsUnloadable.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityFile.h"
 #include "utilityString.h"
 #include "utilityUuid.h"

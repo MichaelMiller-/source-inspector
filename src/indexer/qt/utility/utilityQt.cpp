@@ -14,7 +14,7 @@
 #include "QtMainView.h"
 #include "ResourcePaths.h"
 #include "TextAccess.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityApp.h"
 #include "utilityString.h"
 

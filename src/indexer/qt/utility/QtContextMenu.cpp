@@ -9,7 +9,7 @@
 
 #include "MessageHistoryRedo.h"
 #include "MessageHistoryUndo.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 QtContextMenu* QtContextMenu::s_instance;
 

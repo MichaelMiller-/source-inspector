@@ -1,7 +1,7 @@
 #include "QtViewWidgetWrapper.h"
 
 #include "View.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 QWidget* QtViewWidgetWrapper::getWidgetOfView(const View* view)
 {

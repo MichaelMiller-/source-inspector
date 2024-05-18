@@ -3,7 +3,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-#include "logging.h"
+#include "logging/logging.h"
 
 QtRequest::QtRequest()
 {

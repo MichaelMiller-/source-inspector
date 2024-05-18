@@ -8,10 +8,8 @@ QtLineItemStraight::QtLineItemStraight(QGraphicsItem* parent): QGraphicsLineItem
 	this->setAcceptHoverEvents(true);
 }
 
-QtLineItemStraight::~QtLineItemStraight() {}
-
 void QtLineItemStraight::updateLine(
-	const Vec2i& origin, const Vec2i& target, const GraphViewStyle::EdgeStyle& style)
+	const math::Vec2i& origin, const math::Vec2i& target, const GraphViewStyle::EdgeStyle& style)
 {
 	prepareGeometryChange();
 

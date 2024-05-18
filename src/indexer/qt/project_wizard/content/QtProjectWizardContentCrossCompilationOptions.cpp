@@ -5,7 +5,7 @@
 #include <QLabel>
 
 #include "SourceGroupSettingsWithCxxCrossCompilationOptions.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 QtProjectWizardContentCrossCompilationOptions::QtProjectWizardContentCrossCompilationOptions(
 	std::shared_ptr<SourceGroupSettingsWithCxxCrossCompilationOptions> sourceGroupSettings,

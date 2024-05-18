@@ -42,8 +42,6 @@ target_include_directories(indexer PRIVATE
         data/tooltip
         file
         interprocess
-        logging
-        math
         messaging
         messaging/filter_types
         messaging/type
@@ -126,7 +124,6 @@ target_sources(indexer PRIVATE
         LowMemoryStringMap.h
         OrderedCache.h
         OsType.h
-        Property.h
         ScopedFunctor.cpp
         ScopedFunctor.h
         SingleValueCache.h
@@ -593,28 +590,6 @@ target_sources(indexer PRIVATE
         interprocess/SharedMemory.h
         interprocess/SharedMemoryGarbageCollector.cpp
         interprocess/SharedMemoryGarbageCollector.h
-
-        # TODO: code duplication with 'app'
-        logging/ConsoleLogger.cpp
-        logging/ConsoleLogger.h
-        logging/FileLogger.cpp
-        logging/FileLogger.h
-        logging/Logger.cpp
-        logging/Logger.h
-        logging/logging.h
-        logging/LogManager.cpp
-        logging/LogManager.h
-        logging/LogManagerImplementation.cpp
-        logging/LogManagerImplementation.h
-        logging/LogMessage.h
-
-        # TODO: code duplication with 'app'
-        math/Color.h
-        math/MatrixBase.h
-        math/MatrixDynamicBase.h
-        math/Vector2.h
-        math/Vector4.h
-        math/VectorBase.h
 
         # TODO: code duplication with 'app'
         messaging/filter_types/MessageFilterErrorCountUpdate.h
@@ -1297,6 +1272,8 @@ if (WIN32)
 endif ()
 
 target_link_libraries(indexer PRIVATE enable_compiler_warnings)
+target_link_libraries(indexer PRIVATE source-inspector::math)
+target_link_libraries(indexer PRIVATE source-inspector::logging)
 target_link_libraries(indexer PRIVATE clangASTMatchers)
 target_link_libraries(indexer PRIVATE clangFrontend)
 target_link_libraries(indexer PRIVATE clangSerialization)

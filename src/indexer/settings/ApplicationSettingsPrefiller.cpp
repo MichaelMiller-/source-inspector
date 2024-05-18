@@ -2,7 +2,7 @@
 
 #include "ApplicationSettings.h"
 #include "MessageStatus.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityPathDetection.h"
 
 void ApplicationSettingsPrefiller::prefillPaths(ApplicationSettings* settings)

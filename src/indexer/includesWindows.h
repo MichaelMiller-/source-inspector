@@ -10,7 +10,7 @@
 #include "FileSystem.h"
 #include "ResourcePaths.h"
 #include "UserPaths.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilityApp.h"
 

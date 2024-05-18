@@ -20,9 +20,7 @@ QtCountCircleItem::QtCountCircleItem(QGraphicsItem* parent): QtRoundedRectItem(p
 	m_number->setFont(font);
 }
 
-QtCountCircleItem::~QtCountCircleItem() {}
-
-void QtCountCircleItem::setPosition(const Vec2f& pos)
+void QtCountCircleItem::setPosition(const math::Vec2f& pos)
 {
 	qreal width = QFontMetrics(m_number->font()).boundingRect(m_number->text()).width();
 	qreal height = QFontMetrics(m_number->font()).height();
@@ -42,7 +40,7 @@ void QtCountCircleItem::setNumber(size_t number)
 	m_number->setText(numberStr);
 
 	const QPointF center = this->rect().center();
-	this->setPosition(Vec2f(static_cast<float>(center.x()), static_cast<float>(center.y())));
+	this->setPosition({static_cast<float>(center.x()), static_cast<float>(center.y())});
 }
 
 void QtCountCircleItem::setStyle(QColor color, QColor fontColor, QColor borderColor, size_t borderWidth)

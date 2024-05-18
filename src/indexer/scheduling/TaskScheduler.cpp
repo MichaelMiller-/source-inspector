@@ -4,7 +4,7 @@
 #include <thread>
 
 #include "ScopedFunctor.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 TaskScheduler::TaskScheduler(Id schedulerId)
 	: m_schedulerId(schedulerId)

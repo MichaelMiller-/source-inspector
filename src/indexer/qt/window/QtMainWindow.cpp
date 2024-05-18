@@ -52,7 +52,7 @@
 #include "TabbedView.h"
 #include "UserPaths.h"
 #include "View.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "tracing.h"
 #include "utilityApp.h"
 #include "utilityQt.h"

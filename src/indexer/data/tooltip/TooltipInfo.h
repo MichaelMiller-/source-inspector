@@ -3,7 +3,7 @@
 
 #include <memory>
 
-#include "Vector2.h"
+#include "math/Vector2.h"
 #include "types.h"
 
 class SourceLocationFile;
@@ -28,7 +28,7 @@ struct TooltipInfo
 
 	std::vector<TooltipSnippet> snippets;
 
-	Vec2i offset;
+	math::Vec2i offset;
 };
 
 #endif	  // TOOLTIP_INFO_H

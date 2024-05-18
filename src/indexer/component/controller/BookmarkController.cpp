@@ -12,7 +12,7 @@
 #include "MessageActivateNodes.h"
 #include "MessageBookmarkButtonState.h"
 #include "TabId.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilityString.h"
 

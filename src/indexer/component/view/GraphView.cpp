@@ -1,10 +1,9 @@
 #include "GraphView.h"
 
+//! \todo replace with std::string_view
 const char* GraphView::VIEW_NAME = "Graph";
 
 GraphView::GraphView(ViewLayout* viewLayout): View(viewLayout) {}
-
-GraphView::~GraphView() {}
 
 std::string GraphView::getName() const
 {

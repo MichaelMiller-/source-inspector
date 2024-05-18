@@ -8,7 +8,7 @@
 
 #include "MessageGraphNodeExpand.h"
 #include "ResourcePaths.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 QtGraphNodeExpandToggle::QtGraphNodeExpandToggle(bool expanded, int invisibleSubNodeCount)
 	: m_invisibleSubNodeCount(invisibleSubNodeCount), m_expanded(expanded)

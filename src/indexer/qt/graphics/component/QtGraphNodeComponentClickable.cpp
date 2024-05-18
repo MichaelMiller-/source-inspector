@@ -18,7 +18,7 @@ void QtGraphNodeComponentClickable::nodeMousePressEvent(QGraphicsSceneMouseEvent
 		return;
 	}
 
-	m_mousePos = Vec2i(
+	m_mousePos = math::Vec2i(
 		static_cast<int>(event->scenePos().x()), static_cast<int>(event->scenePos().y()));
 	m_mouseMoved = false;
 
@@ -30,7 +30,7 @@ void QtGraphNodeComponentClickable::nodeMousePressEvent(QGraphicsSceneMouseEvent
 
 void QtGraphNodeComponentClickable::nodeMouseMoveEvent(QGraphicsSceneMouseEvent* event)
 {
-	Vec2i mousePos = Vec2i(
+	auto mousePos = math::Vec2i(
 		static_cast<int>(event->scenePos().x()), static_cast<int>(event->scenePos().y()));
 
 	if ((mousePos - m_mousePos).getLength() > 3.0f)

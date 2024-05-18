@@ -1,7 +1,7 @@
 #include "Settings.h"
 
 #include "TextAccess.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 
 Settings::Settings(const Settings& other)

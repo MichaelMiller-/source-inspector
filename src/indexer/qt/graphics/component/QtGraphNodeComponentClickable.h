@@ -3,7 +3,7 @@
 
 #include "QtGraphNodeComponent.h"
 
-#include "Vector2.h"
+#include "math/Vector2.h"
 
 class QtGraphNodeComponentClickable: public QtGraphNodeComponent
 {
@@ -16,7 +16,7 @@ public:
 	virtual void nodeMouseReleaseEvent(QGraphicsSceneMouseEvent* event);
 
 private:
-	Vec2i m_mousePos;
+	math::Vec2i m_mousePos;
 	bool m_mouseMoved;
 };
 

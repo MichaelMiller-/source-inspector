@@ -3,7 +3,7 @@
 
 #include <map>
 
-#include "Vector2.h"
+#include "math/Vector2.h"
 #include "types.h"
 
 #include "DummyNode.h"
@@ -23,7 +23,7 @@ public:
 	void addNode(std::shared_ptr<DummyNode> node);
 	const DummyNode::BundledNodesSet& getNodes() const;
 
-	void preLayout(Vec2i viewSize, bool addVerticalSplit, bool forceVerticalSplit);
+	void preLayout(math::Vec2i viewSize, bool addVerticalSplit, bool forceVerticalSplit);
 	void layout(int x, int y, int width, int height);
 
 	const std::vector<int> getColWidths() const;
@@ -45,7 +45,7 @@ private:
 class BucketLayouter
 {
 public:
-	BucketLayouter(Vec2i viewSize);
+	BucketLayouter(math::Vec2i viewSize);
 	void createBuckets(
 		std::vector<std::shared_ptr<DummyNode>>& nodes,
 		const std::vector<std::shared_ptr<DummyEdge>>& edges);
@@ -60,7 +60,7 @@ private:
 	Bucket* getBucket(int i, int j);
 	Bucket* getBucket(std::shared_ptr<DummyNode> node);
 
-	Vec2i m_viewSize;
+	math::Vec2i m_viewSize;
 	std::map<int, std::map<int, Bucket>> m_buckets;
 
 	int m_i1;

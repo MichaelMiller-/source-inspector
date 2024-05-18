@@ -1,5 +1,8 @@
 BasedOnStyle: LLVM
 ColumnLimit: 120
+IndentWidth: 3
+ContinuationIndentWidth: 3
+AccessModifierOffset: -3
 NamespaceIndentation: All
 BreakBeforeBraces: Custom
 BraceWrapping:
@@ -8,3 +11,4 @@ BraceWrapping:
   AfterStruct: true
   AfterClass: true
 PointerAlignment: Left
+AlwaysBreakTemplateDeclarations: 'Yes'
