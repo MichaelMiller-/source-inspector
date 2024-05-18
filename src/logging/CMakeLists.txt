@@ -1,4 +1,3 @@
-## header-only library
 add_library(logging)
 ## alias
 add_library(source-inspector::logging ALIAS logging)
