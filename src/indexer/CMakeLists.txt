@@ -93,8 +93,6 @@ target_include_directories(indexer PRIVATE
         utility
         ${CMAKE_CURRENT_LIST_DIR}
         ${CMAKE_CURRENT_BINARY_DIR}
-        # TODO: hardcoded path + outside target scope
-        ${CMAKE_SOURCE_DIR}/src/external/sqlite
 )
 
 target_sources(indexer PRIVATE
@@ -1224,9 +1222,6 @@ target_sources(indexer PRIVATE
         utility/TextCodec.h
         utility/utilityString.cpp
         utility/utilityString.h
-
-        # TODO: hardcoded file: use ExternalProject or CPM
-        ${CMAKE_SOURCE_DIR}/src/external/sqlite/CppSQLite3.cpp
 )
 
 ## Dependencies
@@ -1236,7 +1231,6 @@ set(Boost_USE_STATIC_LIBS ON CACHE BOOL "Set to ON to force the use of the stati
 set(Boost_USE_STATIC_RUNTIME OFF)
 find_package(Boost 1.67 COMPONENTS system program_options filesystem date_time REQUIRED)
 
-find_package(unofficial-sqlite3 CONFIG REQUIRED)
 find_package(tinyxml CONFIG REQUIRED)
 find_package(Qt5 "5.12.0" COMPONENTS Widgets Network REQUIRED)
 
@@ -1295,8 +1289,8 @@ target_link_libraries(indexer PRIVATE Boost::boost)
 target_link_libraries(indexer PRIVATE Boost::filesystem)
 target_link_libraries(indexer PRIVATE Qt5::Widgets)
 target_link_libraries(indexer PRIVATE Qt5::Network)
-target_link_libraries(indexer PRIVATE unofficial::sqlite3::sqlite3)
 target_link_libraries(indexer PRIVATE unofficial-tinyxml::unofficial-tinyxml)
+target_link_libraries(indexer PRIVATE external::cppsqlite3)
 
 # TODO: verify
 if (APPLE)

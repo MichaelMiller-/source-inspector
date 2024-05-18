@@ -1,6 +1,7 @@
 # TODO: naming
 
 add_subdirectory(app)
+add_subdirectory(external)
 add_subdirectory(indexer)
 add_subdirectory(logging)
 add_subdirectory(math)
