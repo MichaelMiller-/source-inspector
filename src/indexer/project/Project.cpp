@@ -843,7 +843,6 @@ void Project::discardTempStorage()
 
 bool Project::hasCxxSourceGroup() const
 {
-#if BUILD_CXX_LANGUAGE_PACKAGE
 	for (const std::shared_ptr<SourceGroup>& sourceGroup: m_sourceGroups)
 	{
 		if (sourceGroup->getStatus() == SOURCE_GROUP_STATUS_ENABLED)
@@ -854,6 +853,5 @@ bool Project::hasCxxSourceGroup() const
 			}
 		}
 	}
-#endif	  // BUILD_CXX_LANGUAGE_PACKAGE
 	return false;
 }

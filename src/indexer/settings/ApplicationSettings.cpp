@@ -20,7 +20,6 @@ std::shared_ptr<ApplicationSettings> ApplicationSettings::getInstance()
    if (!s_instance) {
       s_instance = std::shared_ptr<ApplicationSettings>(new ApplicationSettings());
    }
-
    return s_instance;
 }
 
@@ -181,24 +180,9 @@ void ApplicationSettings::setColorSchemeName(const std::wstring& colorSchemeName
 
 int ApplicationSettings::getFontSizeMax() const { return getValue<int>("application/font_size_max", 24); }
 
-void ApplicationSettings::setFontSizeMax(const int fontSizeMax)
-{
-   setValue<int>("application/font_size_max", fontSizeMax);
-}
-
 int ApplicationSettings::getFontSizeMin() const { return getValue<int>("application/font_size_min", 4); }
 
-void ApplicationSettings::setFontSizeMin(const int fontSizeMin)
-{
-   setValue<int>("application/font_size_min", fontSizeMin);
-}
-
 int ApplicationSettings::getFontSizeStd() const { return getValue<int>("application/font_size_std", 12); }
-
-void ApplicationSettings::setFontSizeStd(const int fontSizeStd)
-{
-   setValue<int>("application/font_size_std", fontSizeStd);
-}
 
 int ApplicationSettings::getWindowBaseWidth() const { return getValue<int>("application/window_base_width", 500); }
 
@@ -444,7 +428,7 @@ std::vector<FilePath> ApplicationSettings::getRecentProjects() const
    std::vector<FilePath> recentProjects;
    std::vector<FilePath> loadedRecentProjects = getPathValues("user/recent_projects/recent_project");
 
-   for (const FilePath& project : loadedRecentProjects) {
+   for (const auto& project : loadedRecentProjects) {
       if (project.isAbsolute()) {
          recentProjects.push_back(project);
       } else {

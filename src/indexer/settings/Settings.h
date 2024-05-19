@@ -13,8 +13,10 @@ class SettingsMigration;
 class Settings
 {
 public:
-   // Settings(const Settings& other);
-   // Settings& operator=(const Settings& other);
+   virtual ~Settings() = default;
+
+   Settings(const Settings& other);
+   Settings& operator=(const Settings& other);
 
    bool load(const FilePath& filePath, bool readOnly = false);
    bool loadFromString(const std::string& text, bool readOnly = false);

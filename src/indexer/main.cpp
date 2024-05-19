@@ -1,19 +1,12 @@
-#include "includes.h"
-
-#include "language_packages.h"
-
 #include "AppPath.h"
 #include "ApplicationSettings.h"
 #include "InterprocessIndexer.h"
+#include "LanguagePackageCxx.h"
 #include "LanguagePackageManager.h"
-#include "logging/ConsoleLogger.h"
+#include "UserPaths.h"
 #include "logging/FileLogger.h"
 #include "logging/LogManager.h"
 #include "logging/logging.h"
-
-#if BUILD_CXX_LANGUAGE_PACKAGE
-#include "LanguagePackageCxx.h"
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
 
 #if BUILD_JAVA_LANGUAGE_PACKAGE
 #include "LanguagePackageJava.h"
@@ -21,14 +14,14 @@
 
 void setupLogging(const std::filesystem::path& logFilePath)
 {
-   LogManager* logManager = LogManager::getInstance().get();
+   auto logManager = LogManager::getInstance().get();
 
    // std::shared_ptr<ConsoleLogger> consoleLogger = std::make_shared<ConsoleLogger>();
    // // consoleLogger->setLogLevel(Logger::LOG_WARNINGS | Logger::LOG_ERRORS);
    // consoleLogger->setLogLevel(Logger::LOG_ALL);
    // logManager->addLogger(consoleLogger);
 
-   std::shared_ptr<FileLogger> fileLogger = std::make_shared<FileLogger>();
+   auto fileLogger = std::make_shared<FileLogger>();
    fileLogger->setLogFilePath(logFilePath);
    fileLogger->setLogLevel(Logger::LOG_ALL);
    logManager->addLogger(fileLogger);
@@ -50,24 +43,26 @@ int main(int argc, char* argv[])
    std::string userDataPath;
    std::string logFilePath;
 
+   //! \todo: replace with docopt
    if (argc >= 2) {
       processId = std::stoi(argv[1]);
    }
-
    if (argc >= 3) {
       instanceUuid = argv[2];
    }
-
    if (argc >= 4) {
       appPath = argv[3];
    }
-
    if (argc >= 5) {
       userDataPath = argv[4];
    }
-
-   if (argc >= 6) {
+   if (argc >= 6) { // optional
       logFilePath = argv[5];
+   }
+
+   LOG_INFO("Indexer arguments: ");
+   for (int i = 0; i < argc; ++i) {
+      LOG_INFO(argv[i]);
    }
 
    AppPath::setSharedDataDirectoryPath(FilePath(appPath));
@@ -79,16 +74,14 @@ int main(int argc, char* argv[])
 
    suppressCrashMessage();
 
-   ApplicationSettings* appSettings = ApplicationSettings::getInstance().get();
+   auto appSettings = ApplicationSettings::getInstance().get();
    appSettings->load(FilePath(UserPaths::getAppSettingsFilePath()));
    LogManager::getInstance()->setLoggingEnabled(appSettings->getLoggingEnabled());
 
    LOG_INFO(L"sharedDataPath: " + AppPath::getSharedDataDirectoryPath().wstr());
    LOG_INFO(L"userDataPath: " + UserPaths::getUserDataDirectoryPath().wstr());
 
-#if BUILD_CXX_LANGUAGE_PACKAGE
    LanguagePackageManager::getInstance()->addPackage(std::make_shared<LanguagePackageCxx>());
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
 
 #if BUILD_JAVA_LANGUAGE_PACKAGE
    LanguagePackageManager::getInstance()->addPackage(std::make_shared<LanguagePackageJava>());

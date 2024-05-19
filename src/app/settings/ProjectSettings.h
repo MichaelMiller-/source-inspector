@@ -21,9 +21,8 @@ public:
 	static const size_t VERSION;
 	static LanguageType getLanguageOfProject(const FilePath& filePath);
 
-	ProjectSettings();
+	ProjectSettings() = default;
 	ProjectSettings(const FilePath& projectFilePath);
-	virtual ~ProjectSettings();
 
 	bool equalsExceptNameAndLocation(const ProjectSettings& other) const;
 

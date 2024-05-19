@@ -1,6 +1,4 @@
 #include "InterprocessIndexer.h"
-
-#include "FileRegister.h"
 #include "IndexerCommand.h"
 #include "IndexerComposite.h"
 #include "LanguagePackageManager.h"

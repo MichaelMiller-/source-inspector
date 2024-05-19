@@ -1,7 +1,3 @@
-# TODO: hardcoded path
-# TODO: outside of target directory
-configure_file(${CMAKE_SOURCE_DIR}/language_packages.h.in language_packages.h)
-
 set(CMAKE_AUTOMOC ON)
 
 add_executable(indexer)
@@ -92,7 +88,6 @@ target_include_directories(indexer PRIVATE
         text
         utility
         ${CMAKE_CURRENT_LIST_DIR}
-        ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 target_sources(indexer PRIVATE
@@ -110,10 +105,6 @@ target_sources(indexer PRIVATE
         IncludeDirective.h
         IncludeProcessing.cpp
         IncludeProcessing.h
-        includes.h
-        includesLinux.h
-        includesMac.h
-        includesWindows.h
         LanguagePackage.h
         LanguagePackageCxx.cpp
         LanguagePackageCxx.h
@@ -1202,8 +1193,6 @@ target_sources(indexer PRIVATE
         # TODO: code duplication with 'app'
         settings/ApplicationSettings.cpp
         settings/ApplicationSettings.h
-        # settings/ApplicationSettingsPrefiller.cpp
-        # settings/ApplicationSettingsPrefiller.h
         settings/ColorScheme.cpp
         settings/ColorScheme.h
         settings/LanguageType.cpp
