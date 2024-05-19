@@ -595,13 +595,6 @@ target_sources(source-inspector PRIVATE
         logging/LogManagerImplementation.h
         logging/LogMessage.h
 
-        math/Color.h
-        math/MatrixBase.h
-        math/MatrixDynamicBase.h
-        math/Vector2.h
-        math/Vector4.h
-        math/VectorBase.h
-
         messaging/filter_types/MessageFilterErrorCountUpdate.h
         messaging/filter_types/MessageFilterFocusInOut.h
         messaging/filter_types/MessageFilterSearchAutocomplete.h
@@ -1261,6 +1254,7 @@ endforeach ()
 target_compile_definitions(source-inspector PRIVATE ${LLVM_DEFINITIONS})
 
 target_link_libraries(source-inspector PRIVATE enable_compiler_warnings)
+target_link_libraries(source-inspector PRIVATE source-inspector::math)
 target_link_libraries(source-inspector PRIVATE clangASTMatchers)
 target_link_libraries(source-inspector PRIVATE clangFrontend)
 target_link_libraries(source-inspector PRIVATE clangSerialization)
@@ -1283,7 +1277,6 @@ target_link_libraries(source-inspector PRIVATE Boost::filesystem)
 target_link_libraries(source-inspector PRIVATE Boost::program_options)
 target_link_libraries(source-inspector PRIVATE Qt5::Widgets)
 target_link_libraries(source-inspector PRIVATE Qt5::Network)
-# target_link_libraries(source-inspector PRIVATE unofficial::sqlite3::sqlite3)
 target_link_libraries(source-inspector PRIVATE unofficial-tinyxml::unofficial-tinyxml)
 target_link_libraries(source-inspector PRIVATE external::cppsqlite3)
 
