@@ -8,7 +8,6 @@
 #include "MessageActivateTokens.h"
 #include "MessageChangeFileView.h"
 #include "MessageErrorsAll.h"
-#include "MessageFlushUpdates.h"
 #include "MessageRefreshUI.h"
 #include "MessageScrollToLine.h"
 #include "MessageStatus.h"

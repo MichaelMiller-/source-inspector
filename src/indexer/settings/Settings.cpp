@@ -2,7 +2,6 @@
 
 #include "TextAccess.h"
 #include "logging/logging.h"
-#include "utility.h"
 
 Settings::Settings(const Settings& other)
 	: m_config(other.m_config->createCopy()), m_filePath(other.m_filePath)
@@ -19,8 +18,6 @@ Settings& Settings::operator=(const Settings& other)
 
 	return *this;
 }
-
-Settings::~Settings() {}
 
 bool Settings::load(const FilePath& filePath, bool readOnly)
 {

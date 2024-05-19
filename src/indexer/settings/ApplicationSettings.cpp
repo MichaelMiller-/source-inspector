@@ -1,6 +1,5 @@
 #include "ApplicationSettings.h"
 
-#include "AppPath.h"
 #include "ResourcePaths.h"
 #include "SettingsMigrationLambda.h"
 #include "SettingsMigrationMoveKey.h"
@@ -8,7 +7,6 @@
 #include "Status.h"
 #include "TimeStamp.h"
 #include "UserPaths.h"
-#include "Version.h"
 #include "logging/Logger.h"
 #include "utility.h"
 #include "utilityFile.h"

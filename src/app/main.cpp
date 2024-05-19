@@ -24,11 +24,8 @@
 #include "ScopedFunctor.h"
 #include "SourceGroupFactory.h"
 #include "SourceGroupFactoryModuleCustom.h"
-#include "UserPaths.h"
 #include "Version.h"
-#include "logging.h"
 #include "productVersion.h"
-#include "utility.h"
 #include "utilityApp.h"
 #include "utilityQt.h"
 

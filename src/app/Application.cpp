@@ -1,6 +1,5 @@
 #include "Application.h"
 
-#include "AppPath.h"
 #include "ApplicationSettings.h"
 #include "ColorScheme.h"
 #include "DialogView.h"
