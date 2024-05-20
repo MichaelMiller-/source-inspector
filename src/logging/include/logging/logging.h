@@ -5,9 +5,8 @@
 
 #include "LogManager.h"
 
-/**
- * @brief Macros to simplify usage of the log manager
- */
+//! \brief Macros to simplify usage of the log manager
+
 #define LOG_INFO(__str__)                                                                                              \
    do {                                                                                                                \
       LogManager::getInstance()->logInfo(__str__, __FILE__, __FUNCTION__, __LINE__);                                   \
@@ -23,14 +22,10 @@
       LogManager::getInstance()->logError(__str__, __FILE__, __FUNCTION__, __LINE__);                                  \
    } while (0)
 
+//! \todo i don't see the benefit of the *_BARE macros
 #define LOG_INFO_BARE(__str__)                                                                                         \
    do {                                                                                                                \
       LogManager::getInstance()->logInfo(__str__, "", "", 0);                                                          \
-   } while (0)
-
-#define LOG_WARNING_BARE(__str__)                                                                                      \
-   do {                                                                                                                \
-      LogManager::getInstance()->logWarning(__str__, "", "", 0);                                                       \
    } while (0)
 
 #define LOG_ERROR_BARE(__str__)                                                                                        \
@@ -38,6 +33,7 @@
       LogManager::getInstance()->logError(__str__, "", "", 0);                                                         \
    } while (0)
 
+//! \todo replace with std::format
 #define LOG_INFO_STREAM(__s__)                                                                                         \
    do {                                                                                                                \
       if (LogManager::getInstance()->getLoggingEnabled()) {                                                            \
@@ -74,22 +70,6 @@
       }                                                                                                                \
    } while (0)
 
-#define LOG_WARNING_STREAM_BARE(__s__)                                                                                 \
-   do {                                                                                                                \
-      if (LogManager::getInstance()->getLoggingEnabled()) {                                                            \
-         std::stringstream __ss__;                                                                                     \
-         __ss__ __s__;                                                                                                 \
-         LogManager::getInstance()->logWarning(__ss__.str(), "", "", 0);                                               \
-      }                                                                                                                \
-   } while (0)
 
-#define LOG_ERROR_STREAM_BARE(__s__)                                                                                   \
-   do {                                                                                                                \
-      if (LogManager::getInstance()->getLoggingEnabled()) {                                                            \
-         std::stringstream __ss__;                                                                                     \
-         __ss__ __s__;                                                                                                 \
-         LogManager::getInstance()->logError(__ss__.str(), "", "", 0);                                                 \
-      }                                                                                                                \
-   } while (0)
 
 #endif // LOGGING_H

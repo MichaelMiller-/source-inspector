@@ -1,6 +1,5 @@
 #include "QtProjectWizard.h"
 
-#include <QFileDialog>
 #include <QListWidget>
 #include <QMessageBox>
 #include <QScrollArea>
@@ -68,7 +67,6 @@
 
 namespace
 {
-
    bool applicationSettingsContainVisualStudioHeaderSearchPaths()
    {
       std::vector<FilePath> expandedPaths;
@@ -603,9 +601,8 @@ void QtProjectWizard::selectedSourceGroupChanged(int index)
    } else if (std::shared_ptr<SourceGroupSettingsUnloadable> settings =
                  std::dynamic_pointer_cast<SourceGroupSettingsUnloadable>(group)) {
       addSourceGroupContents(summary, settings, this);
-   }
-   else if (std::shared_ptr<SourceGroupSettingsCEmpty> settings =
-               std::dynamic_pointer_cast<SourceGroupSettingsCEmpty>(group)) {
+   } else if (std::shared_ptr<SourceGroupSettingsCEmpty> settings =
+                 std::dynamic_pointer_cast<SourceGroupSettingsCEmpty>(group)) {
       addSourceGroupContents(summary, settings, this);
    } else if (std::shared_ptr<SourceGroupSettingsCppEmpty> settings =
                  std::dynamic_pointer_cast<SourceGroupSettingsCppEmpty>(group)) {

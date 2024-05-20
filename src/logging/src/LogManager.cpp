@@ -11,25 +11,20 @@ static std::wstring_convert<convert_t, wchar_t> converter;
 
 std::shared_ptr<LogManager> LogManager::getInstance()
 {
-	if (s_instance.use_count() == 0)
-	{
-		s_instance = std::shared_ptr<LogManager>(new LogManager());
-	}
-	return s_instance;
+   if (s_instance.use_count() == 0) {
+      s_instance = std::shared_ptr<LogManager>(new LogManager());
+   }
+   return s_instance;
 }
 
-void LogManager::destroyInstance()
-{
-	s_instance.reset();
-}
-
-LogManager::~LogManager() {}
+void LogManager::destroyInstance() { s_instance.reset(); }
 
 void LogManager::setLoggingEnabled(bool enabled)
 {
-	if (m_loggingEnabled != enabled)
-	{
-		m_loggingEnabled = enabled;
+   if (m_loggingEnabled != enabled) {
+      m_loggingEnabled = enabled;
+
+      //! \todo: enable or delete
 #if 0
 		if (enabled)
 		{
@@ -47,118 +42,61 @@ void LogManager::setLoggingEnabled(bool enabled)
 			MessageStatus(L"Disabled console and file logging.").dispatch();
 		}
 #endif
-	}
+   }
 }
 
-bool LogManager::getLoggingEnabled() const
-{
-	return m_loggingEnabled;
-}
+bool LogManager::getLoggingEnabled() const { return m_loggingEnabled; }
 
-void LogManager::addLogger(std::shared_ptr<Logger> logger)
-{
-	m_logManagerImplementation.addLogger(logger);
-}
-
-void LogManager::removeLogger(std::shared_ptr<Logger> logger)
-{
-	m_logManagerImplementation.removeLogger(logger);
-}
-
-void LogManager::removeLoggersByType(const std::string& type)
-{
-	m_logManagerImplementation.removeLoggersByType(type);
-}
-
-Logger* LogManager::getLogger(std::shared_ptr<Logger> logger)
-{
-	return m_logManagerImplementation.getLogger(logger);
-}
+void LogManager::addLogger(std::shared_ptr<Logger> logger) { m_logManagerImplementation.addLogger(logger); }
 
 Logger* LogManager::getLoggerByType(const std::string& type)
 {
-	return m_logManagerImplementation.getLoggerByType(type);
+   return m_logManagerImplementation.getLoggerByType(type);
 }
 
-void LogManager::clearLoggers()
+void LogManager::logInfo(const std::string& message, const std::string& file, const std::string& function,
+                         const unsigned int line)
 {
-	m_logManagerImplementation.clearLoggers();
+   if (m_loggingEnabled) {
+      m_logManagerImplementation.logInfo(converter.from_bytes(message), file, function, line);
+   }
+}
+void LogManager::logInfo(const std::wstring& message, const std::string& file, const std::string& function,
+                         const unsigned int line)
+{
+   if (m_loggingEnabled) {
+      m_logManagerImplementation.logInfo(message, file, function, line);
+   }
 }
 
-int LogManager::getLoggerCount() const
+void LogManager::logWarning(const std::string& message, const std::string& file, const std::string& function,
+                            const unsigned int line)
 {
-	return m_logManagerImplementation.getLoggerCount();
+   if (m_loggingEnabled) {
+      m_logManagerImplementation.logWarning(converter.from_bytes(message), file, function, line);
+   }
+}
+void LogManager::logWarning(const std::wstring& message, const std::string& file, const std::string& function,
+                            const unsigned int line)
+{
+   if (m_loggingEnabled) {
+      m_logManagerImplementation.logWarning(message, file, function, line);
+   }
 }
 
-void LogManager::logInfo(
-   const std::string& message,
-   const std::string& file,
-   const std::string& function,
-   const unsigned int line)
+void LogManager::logError(const std::string& message, const std::string& file, const std::string& function,
+                          const unsigned int line)
 {
-        if (m_loggingEnabled)
-        {
-                m_logManagerImplementation.logInfo(converter.from_bytes(message), file, function, line);
-        }
+   if (m_loggingEnabled) {
+      m_logManagerImplementation.logError(converter.from_bytes(message), file, function, line);
+   }
 }
-void LogManager::logInfo(
-	const std::wstring& message,
-	const std::string& file,
-	const std::string& function,
-	const unsigned int line)
+void LogManager::logError(const std::wstring& message, const std::string& file, const std::string& function,
+                          const unsigned int line)
 {
-	if (m_loggingEnabled)
-	{
-		m_logManagerImplementation.logInfo(message, file, function, line);
-	}
-}
-
-void LogManager::logWarning(
-   const std::string& message,
-   const std::string& file,
-   const std::string& function,
-   const unsigned int line)
-{
-        if (m_loggingEnabled)
-        {
-                m_logManagerImplementation.logWarning(converter.from_bytes(message), file, function, line);
-        }
-}
-void LogManager::logWarning(
-	const std::wstring& message,
-	const std::string& file,
-	const std::string& function,
-	const unsigned int line)
-{
-	if (m_loggingEnabled)
-	{
-		m_logManagerImplementation.logWarning(message, file, function, line);
-	}
-}
-
-void LogManager::logError(
-   const std::string& message,
-   const std::string& file,
-   const std::string& function,
-   const unsigned int line)
-{
-        if (m_loggingEnabled)
-        {
-                m_logManagerImplementation.logError(converter.from_bytes(message), file, function, line);
-        }
-}
-void LogManager::logError(
-	const std::wstring& message,
-	const std::string& file,
-	const std::string& function,
-	const unsigned int line)
-{
-	if (m_loggingEnabled)
-	{
-		m_logManagerImplementation.logError(message, file, function, line);
-	}
+   if (m_loggingEnabled) {
+      m_logManagerImplementation.logError(message, file, function, line);
+   }
 }
 
 std::shared_ptr<LogManager> LogManager::s_instance;
-
-LogManager::LogManager(): m_loggingEnabled(false) {}

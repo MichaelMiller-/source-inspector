@@ -19,7 +19,6 @@ class IDECommunicationController;
 class MainView;
 class NetworkFactory;
 class StorageCache;
-class UpdateChecker;
 class Version;
 class ViewFactory;
 

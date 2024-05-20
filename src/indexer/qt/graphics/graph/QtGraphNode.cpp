@@ -14,7 +14,6 @@
 #include "QtDeviceScaledPixmap.h"
 #include "QtGraphEdge.h"
 #include "QtGraphNodeComponent.h"
-#include "QtGraphNodeExpandToggle.h"
 #include "QtRoundedRectItem.h"
 #include "ResourcePaths.h"
 #include "utilityQt.h"

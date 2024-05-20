@@ -1,6 +1,5 @@
 #include "QtGraphicsView.h"
 
-#include <QDir>
 #include <QMouseEvent>
 #include <QScrollBar>
 #include <QTimer>

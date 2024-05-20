@@ -8,7 +8,6 @@
 #include <boost/asio/io_service.hpp>
 #include <boost/asio/read.hpp>
 #include <boost/process.hpp>
-#include <boost/process/async_pipe.hpp>
 #include <boost/process/child.hpp>
 #include <boost/process/io.hpp>
 #include <boost/process/search_path.hpp>
@@ -28,13 +27,14 @@ namespace utility
 
 std::string utility::getDocumentationLink()
 {
+   //! \todo generate from build-system
    return "https://github.com/CoatiSoftware/Sourcetrail/blob/master/DOCUMENTATION.md";
 }
 
 std::wstring utility::searchPath(const std::wstring& bin, bool& ok)
 {
    ok = false;
-   std::wstring r = boost::process::search_path(bin).generic_wstring();
+   auto r = boost::process::search_path(bin).generic_wstring();
    if (!r.empty()) {
       ok = true;
       return r;
