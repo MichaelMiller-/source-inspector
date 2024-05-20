@@ -1,7 +1,6 @@
 #include "PersistentStorage.h"
 
 #include <queue>
-#include <sstream>
 
 #include "AccessKind.h"
 #include "ApplicationSettings.h"
@@ -64,7 +63,7 @@ void PersistentStorage::addSymbols(const std::vector<StorageSymbol>& symbols)
 
 void PersistentStorage::addFile(const StorageFile& data)
 {
-   const StorageFile storedFile = m_sqliteIndexStorage.getFirstById<StorageFile>(data.id);
+   auto const storedFile = m_sqliteIndexStorage.getFirstById<StorageFile>(data.id);
 
    if (storedFile.id == 0) {
       m_sqliteIndexStorage.addFile(data);
@@ -134,15 +133,6 @@ void PersistentStorage::addElementComponents(const std::vector<StorageElementCom
 }
 
 Id PersistentStorage::addError(const StorageErrorData& data) { return m_sqliteIndexStorage.addError(data).id; }
-
-void PersistentStorage::removeElement(const Id id) { m_sqliteIndexStorage.removeElement(id); }
-
-void PersistentStorage::removeElements(const std::vector<Id>& ids) { m_sqliteIndexStorage.removeElements(ids); }
-
-void PersistentStorage::removeOccurrence(const StorageOccurrence& occurrence)
-{
-   m_sqliteIndexStorage.removeOccurrence(occurrence);
-}
 
 void PersistentStorage::removeOccurrences(const std::vector<StorageOccurrence>& occurrences)
 {
@@ -382,7 +372,7 @@ std::set<FilePath> PersistentStorage::getIncompleteFiles() const
 
    std::set<FilePath> incompleteFiles;
    for (auto p : m_fileNodeComplete) {
-      if (p.second == false) {
+      if (not p.second) {
          incompleteFiles.insert(getFileNodePath(p.first));
       }
    }

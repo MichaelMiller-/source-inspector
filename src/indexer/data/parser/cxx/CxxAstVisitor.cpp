@@ -5,13 +5,11 @@
 
 #include "CanonicalFilePathCache.h"
 #include "CxxDeclNameResolver.h"
-#include "CxxTypeNameResolver.h"
 #include "IndexerStateInfo.h"
 #include "ParseLocation.h"
 #include "ParserClient.h"
 #include "logging/logging.h"
 #include "utilityClang.h"
-#include "utilityString.h"
 
 CxxAstVisitor::CxxAstVisitor(clang::ASTContext* astContext, clang::Preprocessor* preprocessor,
                              std::shared_ptr<ParserClient> client,
