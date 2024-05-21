@@ -3,19 +3,16 @@
 #include "SettingsMigrationDeleteKey.h"
 #include "SettingsMigrationLambda.h"
 #include "SettingsMigrationMoveKey.h"
+#include "SourceGroupSettingsCEmpty.h"
+#include "SourceGroupSettingsCppEmpty.h"
 #include "SourceGroupSettingsCustomCommand.h"
+#include "SourceGroupSettingsCxxCdb.h"
+#include "SourceGroupSettingsCxxCodeblocks.h"
 #include "SourceGroupSettingsUnloadable.h"
 #include "logging.h"
 #include "utilityFile.h"
 #include "utilityString.h"
 #include "utilityUuid.h"
-
-#if BUILD_CXX_LANGUAGE_PACKAGE
-#include "SourceGroupSettingsCEmpty.h"
-#include "SourceGroupSettingsCppEmpty.h"
-#include "SourceGroupSettingsCxxCdb.h"
-#include "SourceGroupSettingsCxxCodeblocks.h"
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
 
 #if BUILD_JAVA_LANGUAGE_PACKAGE
 #include "SourceGroupSettingsJavaEmpty.h"
@@ -142,7 +139,6 @@ std::vector<std::shared_ptr<SourceGroupSettings>> ProjectSettings::getAllSourceG
       std::shared_ptr<SourceGroupSettings> settings;
 
       switch (type) {
-#if BUILD_CXX_LANGUAGE_PACKAGE
       case SOURCE_GROUP_C_EMPTY:
          settings = std::make_shared<SourceGroupSettingsCEmpty>(id, this);
          break;
@@ -155,7 +151,6 @@ std::vector<std::shared_ptr<SourceGroupSettings>> ProjectSettings::getAllSourceG
       case SOURCE_GROUP_CXX_CODEBLOCKS:
          settings = std::make_shared<SourceGroupSettingsCxxCodeblocks>(id, this);
          break;
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
 #if BUILD_JAVA_LANGUAGE_PACKAGE
       case SOURCE_GROUP_JAVA_EMPTY:
          settings = std::make_shared<SourceGroupSettingsJavaEmpty>(id, this);
@@ -290,7 +285,7 @@ SettingsMigrator ProjectSettings::getMigrations() const
                migration->getValueFromSettings<std::string>(settings, "language_settings/language", "");
 
             SourceGroupType type = SOURCE_GROUP_UNKNOWN;
-#if BUILD_CXX_LANGUAGE_PACKAGE
+
             if (language == "C" || language == "C++") {
                const std::string cdbPath = migration->getValueFromSettings<std::string>(
                   settings, sourceGroupKey + "/build_file_path/compilation_db_path", "");
@@ -302,7 +297,7 @@ SettingsMigrator ProjectSettings::getMigrations() const
                   type = SOURCE_GROUP_CPP_EMPTY;
                }
             }
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
+
 #if BUILD_JAVA_LANGUAGE_PACKAGE
             if (language == "Java") {
                const std::string mavenProjectFilePath = migration->getValueFromSettings<std::string>(
@@ -333,27 +328,23 @@ SettingsMigrator ProjectSettings::getMigrations() const
    }
 
    for (std::shared_ptr<SourceGroupSettings> sourceGroupSettings : getAllSourceGroupSettings()) {
-#if BUILD_CXX_LANGUAGE_PACKAGE
       if (sourceGroupSettings->getType() == SOURCE_GROUP_CXX_CDB) {
          const std::string key = SourceGroupSettings::s_keyPrefix + sourceGroupSettings->getId();
          migrator.addMigration(
             6, std::make_shared<SettingsMigrationMoveKey>(key + "/source_paths/source_path",
                                                           key + "/indexed_header_paths/indexed_header_path"));
       }
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
    }
 
    for (std::shared_ptr<SourceGroupSettings> sourceGroupSettings : getAllSourceGroupSettings()) {
       std::string languageName;
       switch (getLanguageTypeForSourceGroupType(sourceGroupSettings->getType())) {
-#if BUILD_CXX_LANGUAGE_PACKAGE
       case LANGUAGE_C:
          languageName = "c";
          break;
       case LANGUAGE_CPP:
          languageName = "cpp";
          break;
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
 #if BUILD_JAVA_LANGUAGE_PACKAGE
       case LANGUAGE_JAVA:
          languageName = "java";

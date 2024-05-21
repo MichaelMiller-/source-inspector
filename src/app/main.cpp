@@ -28,11 +28,8 @@
 #include "productVersion.h"
 #include "utilityApp.h"
 #include "utilityQt.h"
-
-#if BUILD_CXX_LANGUAGE_PACKAGE
 #include "LanguagePackageCxx.h"
 #include "SourceGroupFactoryModuleCxx.h"
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
 
 #if BUILD_JAVA_LANGUAGE_PACKAGE
 #include "LanguagePackageJava.h"
@@ -63,10 +60,7 @@ void setupLogging() {
 
 void addLanguagePackages() {
   SourceGroupFactory::getInstance()->addModule(std::make_shared<SourceGroupFactoryModuleCustom>());
-
-#if BUILD_CXX_LANGUAGE_PACKAGE
   SourceGroupFactory::getInstance()->addModule(std::make_shared<SourceGroupFactoryModuleCxx>());
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
 
 #if BUILD_JAVA_LANGUAGE_PACKAGE
   SourceGroupFactory::getInstance()->addModule(std::make_shared<SourceGroupFactoryModuleJava>());
@@ -76,9 +70,7 @@ void addLanguagePackages() {
   SourceGroupFactory::getInstance()->addModule(std::make_shared<SourceGroupFactoryModulePython>());
 #endif // BUILD_PYTHON_LANGUAGE_PACKAGE
 
-#if BUILD_CXX_LANGUAGE_PACKAGE
   LanguagePackageManager::getInstance()->addPackage(std::make_shared<LanguagePackageCxx>());
-#endif // BUILD_CXX_LANGUAGE_PACKAGE
 
 #if BUILD_JAVA_LANGUAGE_PACKAGE
   LanguagePackageManager::getInstance()->addPackage(std::make_shared<LanguagePackageJava>());

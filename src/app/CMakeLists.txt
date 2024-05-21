@@ -1,13 +1,8 @@
 ## TODO: restructure target + modulize
 
-# configure_file(${CMAKE_CURRENT_SOURCE_DIR}/includes.h.in includes.h)
 # TODO: hardcoded path
 # TODO: verify
-configure_file(${CMAKE_SOURCE_DIR}/language_packages.h.in language_packages.h)
 configure_file(${CMAKE_SOURCE_DIR}/productVersion.h.in productVersion.h)
-# configure_file(${CMAKE_SOURCE_DIR}/version.txt.in version.txt)
-configure_file(${CMAKE_SOURCE_DIR}/productVersion.h.in productVersion.h)
-configure_file(${CMAKE_SOURCE_DIR}/language_packages.h.in language_packages.h)
 
 set(CMAKE_AUTOMOC ON)
 
