@@ -9,7 +9,7 @@
 #include "ParseLocation.h"
 #include "ParserClient.h"
 #include "ScopedSwitcher.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 CxxVerboseAstVisitor::CxxVerboseAstVisitor(
 	clang::ASTContext* context,

@@ -8,7 +8,7 @@
 #include "SourceLocationCollection.h"
 #include "SourceLocationFile.h"
 #include "TextAccess.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityString.h"
 
 const size_t SqliteIndexStorage::s_storageVersion = 25;

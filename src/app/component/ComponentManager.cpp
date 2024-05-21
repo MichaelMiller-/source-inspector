@@ -13,7 +13,7 @@
 #include "TabbedView.h"
 #include "UndoRedoView.h"
 #include "ViewFactory.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 namespace
 {

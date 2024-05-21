@@ -4,7 +4,7 @@
 #include "ColorScheme.h"
 #include "GraphViewStyleImpl.h"
 #include "ResourcePaths.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityString.h"
 
 int GraphViewStyle::s_gridCellSize = 5;

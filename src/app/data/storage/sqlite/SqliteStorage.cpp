@@ -2,7 +2,7 @@
 
 #include "FileSystem.h"
 #include "TimeStamp.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityString.h"
 
 SqliteStorage::SqliteStorage(const FilePath& dbFilePath): m_dbFilePath(dbFilePath.getCanonical())

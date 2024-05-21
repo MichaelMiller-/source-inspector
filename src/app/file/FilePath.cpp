@@ -5,7 +5,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/path.hpp>
 
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityString.h"
 
 FilePath::FilePath()

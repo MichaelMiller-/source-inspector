@@ -11,7 +11,7 @@
 #include "SourceGroupSettingsWithCppStandard.h"
 #include "SourceGroupSettingsWithCxxPathsAndFlags.h"
 #include "TaskLambda.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilitySourceGroupCxx.h"
 

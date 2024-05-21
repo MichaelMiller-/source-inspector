@@ -24,7 +24,7 @@
 #include "TokenComponentInheritanceChain.h"
 #include "TokenComponentIsAmbiguous.h"
 #include "UnorderedCache.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "tracing.h"
 #include "utility.h"
 #include "utilityApp.h"

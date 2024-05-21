@@ -1,6 +1,6 @@
 #include "Storage.h"
 
-#include "logging.h"
+#include "logging/logging.h"
 #include "tracing.h"
 
 Storage::Storage() {}

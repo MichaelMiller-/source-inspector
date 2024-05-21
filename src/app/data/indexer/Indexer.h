@@ -7,7 +7,7 @@
 #include "IndexerCommand.h"
 #include "IndexerStateInfo.h"
 #include "ParserClientImpl.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 template <typename T>
 class Indexer: public IndexerBase

@@ -3,7 +3,7 @@
 
 #include <sstream>
 
-#include "LogManager.h"
+#include "logging/LogManager.h"
 
 //! \brief Macros to simplify usage of the log manager
 

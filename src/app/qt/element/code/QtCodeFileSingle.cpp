@@ -13,7 +13,7 @@
 #include "QtCodeFileTitleButton.h"
 #include "QtCodeNavigator.h"
 #include "SourceLocationFile.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityQt.h"
 
 QtCodeFileSingle::QtCodeFileSingle(QtCodeNavigator* navigator, QWidget* parent)

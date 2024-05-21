@@ -42,8 +42,6 @@ target_include_directories(source-inspector PRIVATE
         data/tooltip
         file
         interprocess
-        logging
-        math
         messaging
         messaging/filter_types
         messaging/type
@@ -143,8 +141,6 @@ target_sources(source-inspector PRIVATE
         utilityUuid.h
         utilityWindows.cpp
         utilityWindows.h
-        utilityXml.cpp
-        utilityXml.h
         Version.cpp
         Version.h
 
@@ -576,19 +572,6 @@ target_sources(source-inspector PRIVATE
         interprocess/SharedMemory.h
         interprocess/SharedMemoryGarbageCollector.cpp
         interprocess/SharedMemoryGarbageCollector.h
-
-        logging/ConsoleLogger.cpp
-        logging/ConsoleLogger.h
-        logging/FileLogger.cpp
-        logging/FileLogger.h
-        logging/Logger.cpp
-        logging/Logger.h
-        logging/logging.h
-        logging/LogManager.cpp
-        logging/LogManager.h
-        logging/LogManagerImplementation.cpp
-        logging/LogManagerImplementation.h
-        logging/LogMessage.h
 
         messaging/filter_types/MessageFilterErrorCountUpdate.h
         messaging/filter_types/MessageFilterFocusInOut.h
@@ -1223,6 +1206,7 @@ find_package(Boost 1.67 COMPONENTS system program_options filesystem date_time R
 set(QT_MIN_VERSION "5.12.0")
 find_package(Qt5 ${QT_MIN_VERSION} COMPONENTS Widgets Network REQUIRED)
 if (WIN32)
+    # TODO: verify
     find_package(Qt5 ${QT_MIN_VERSION} COMPONENTS WinExtras REQUIRED)
 endif ()
 
@@ -1249,6 +1233,7 @@ endforeach ()
 target_compile_definitions(source-inspector PRIVATE ${LLVM_DEFINITIONS})
 
 target_link_libraries(source-inspector PRIVATE enable_compiler_warnings)
+target_link_libraries(source-inspector PRIVATE source-inspector::logging)
 target_link_libraries(source-inspector PRIVATE source-inspector::math)
 target_link_libraries(source-inspector PRIVATE clangASTMatchers)
 target_link_libraries(source-inspector PRIVATE clangFrontend)

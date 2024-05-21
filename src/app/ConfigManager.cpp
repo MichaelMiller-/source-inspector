@@ -6,7 +6,7 @@
 
 #include "FilePath.h"
 #include "TextAccess.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilityString.h"
 

@@ -17,7 +17,7 @@
 #include "TokenComponentFilePath.h"
 #include "TokenComponentInheritanceChain.h"
 #include "TrailLayouter.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "tracing.h"
 #include "utility.h"
 #include "utilityString.h"

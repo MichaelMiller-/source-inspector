@@ -3,7 +3,7 @@
 #include <thread>
 
 #include "TimeStamp.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityApp.h"
 
 std::string SharedMemoryGarbageCollector::s_memoryNamePrefix = "grbg_cllctr_";

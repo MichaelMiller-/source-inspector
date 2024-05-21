@@ -1,7 +1,7 @@
 #ifndef MESSAGE_LOG_FILTER_CHANGED_H
 #define MESSAGE_LOG_FILTER_CHANGED_H
 
-#include "Logger.h"
+#include "logging/Logger.h"
 #include "Message.h"
 
 class MessageLogFilterChanged: public Message<MessageLogFilterChanged>

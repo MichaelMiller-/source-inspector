@@ -11,7 +11,7 @@
 #include "QtTextEditDialog.h"
 #include "SourceGroupSettingsCxxCdb.h"
 #include "SourceGroupSettingsCxxCodeblocks.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilityFile.h"
 

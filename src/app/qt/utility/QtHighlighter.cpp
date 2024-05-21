@@ -11,7 +11,7 @@
 #include "FileSystem.h"
 #include "ResourcePaths.h"
 #include "TextAccess.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "tracing.h"
 #include "utility.h"
 

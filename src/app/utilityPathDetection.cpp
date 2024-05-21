@@ -1,11 +1,11 @@
 #include "utilityPathDetection.h"
 
-#include "logging.h"
-#include "utilityApp.h"
 #include "CxxFrameworkPathDetector.h"
 #include "CxxHeaderPathDetector.h"
 #include "CxxVs10To14HeaderPathDetector.h"
 #include "CxxVs15HeaderPathDetector.h"
+#include "logging/logging.h"
+#include "utilityApp.h"
 
 #if BUILD_JAVA_LANGUAGE_PACKAGE
 #include "JavaPathDetectorLinux.h"

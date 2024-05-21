@@ -27,7 +27,7 @@
 #include "SourceLocationCollection.h"
 #include "SourceLocationFile.h"
 #include "TabId.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilityQt.h"
 

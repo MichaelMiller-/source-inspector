@@ -6,7 +6,7 @@
 #include <QSysInfo>
 
 #include "FilePath.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 #include "utilityCxxHeaderDetection.h"
 

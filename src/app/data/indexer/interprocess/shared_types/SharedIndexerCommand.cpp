@@ -3,7 +3,7 @@
 #include "IndexerCommandCxx.h"
 // #include "IndexerCommandJava.h"
 
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityString.h"
 
 void SharedIndexerCommand::fromLocal(IndexerCommand* indexerCommand)

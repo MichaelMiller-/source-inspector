@@ -1,6 +1,6 @@
 #include "ApplicationSettings.h"
 
-#include "Logger.h"
+#include "logging/Logger.h"
 #include "ResourcePaths.h"
 #include "SettingsMigrationLambda.h"
 #include "SettingsMigrationMoveKey.h"
@@ -21,7 +21,6 @@ std::shared_ptr<ApplicationSettings> ApplicationSettings::getInstance()
    if (!s_instance) {
       s_instance = std::shared_ptr<ApplicationSettings>(new ApplicationSettings());
    }
-
    return s_instance;
 }
 

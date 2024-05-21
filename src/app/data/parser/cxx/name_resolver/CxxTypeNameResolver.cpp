@@ -7,7 +7,7 @@
 #include "CxxDeclNameResolver.h"
 #include "CxxSpecifierNameResolver.h"
 #include "CxxTemplateArgumentNameResolver.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityString.h"
 
 CxxTypeNameResolver::CxxTypeNameResolver(CanonicalFilePathCache* canonicalFilePathCache)

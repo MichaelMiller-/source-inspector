@@ -5,7 +5,7 @@
 
 #include <boost/algorithm/string.hpp>
 
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityString.h"
 
 std::wstring NetworkProtocolHelper::s_divider = L">>";

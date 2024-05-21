@@ -1,7 +1,7 @@
 #include "SourceLocationCollection.h"
 
 #include "SourceLocationFile.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 SourceLocationCollection::SourceLocationCollection() {}
 

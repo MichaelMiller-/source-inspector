@@ -6,7 +6,7 @@
 #include "MessageProjectNew.h"
 #include "MessageStatus.h"
 #include "MessageTabOpenWith.h"
-#include "logging.h"
+#include "logging/logging.h"
 
 #include "SourceLocationFile.h"
 #include "StorageAccess.h"

@@ -9,7 +9,7 @@
 #include "IndexerStateInfo.h"
 #include "ParseLocation.h"
 #include "ParserClient.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityClang.h"
 #include "utilityString.h"
 

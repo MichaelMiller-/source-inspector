@@ -16,7 +16,7 @@
 #include "SourceGroupSettingsWithCxxPchOptions.h"
 #include "StorageProvider.h"
 #include "TaskLambda.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utility.h"
 
 namespace utility

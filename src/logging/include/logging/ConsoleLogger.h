@@ -4,7 +4,7 @@
 #include <mutex>
 
 #include "LogMessage.h"
-#include "Logger.h"
+#include "logging/Logger.h"
 
 class ConsoleLogger: public Logger
 {

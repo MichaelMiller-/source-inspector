@@ -9,7 +9,7 @@
 #include "SourceGroupSettingsCxxCdb.h"
 #include "SourceGroupSettingsCxxCodeblocks.h"
 #include "SourceGroupSettingsUnloadable.h"
-#include "logging.h"
+#include "logging/logging.h"
 #include "utilityFile.h"
 #include "utilityString.h"
 #include "utilityUuid.h"
@@ -24,6 +24,7 @@
 #include "SourceGroupSettingsPythonEmpty.h"
 #endif // BUILD_PYTHON_LANGUAGE_PACKAGE
 
+//! \todo replace with: constexpr std::wstring_view
 const std::wstring ProjectSettings::PROJECT_FILE_EXTENSION = L".srctrlprj";
 const std::wstring ProjectSettings::BOOKMARK_DB_FILE_EXTENSION = L".srctrlbm";
 const std::wstring ProjectSettings::INDEX_DB_FILE_EXTENSION = L".srctrldb";

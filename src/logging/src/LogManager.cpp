@@ -1,10 +1,10 @@
-#include "LogManager.h"
+#include "logging/LogManager.h"
 
 #include <algorithm>
 #include <codecvt>
 #include <locale>
 
-#include "logging.h"
+#include "logging/logging.h"
 
 using convert_t = std::codecvt_utf8<wchar_t>;
 static std::wstring_convert<convert_t, wchar_t> converter;
