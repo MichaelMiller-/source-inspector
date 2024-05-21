@@ -114,7 +114,6 @@ target_sources(source-inspector PRIVATE
         LanguagePackageManager.h
         LowMemoryStringMap.h
         main.cpp
-        Optional.h
         OrderedCache.h
         OsType.h
         Property.h
